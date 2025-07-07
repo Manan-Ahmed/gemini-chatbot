@@ -108,15 +108,19 @@ if(darkMode == 'dark'){
 
 <div className={darkMode=='dark'?'dark':'light'}>
 
-<div className="grid grid-cols-5 h-screen text-center"   >
+<div className="grid grid-cols-1 md:grid-cols-5  h-screen text-center "   >
 <select onChange={(event)=>setDarkMode(event.target.value)} className="fixed text-white bottom-0 p-5">
   <option value="dark" className="bg-black">Dark</option>
    <option value="light" className="bg-black">Light</option>
 </select>
+
+<div className="hidden md:block md:col-span-1 border-r border-zinc-700">
 <RecentHistory renderHistory={renderHistory} setSelectedHistory={setSelectedHistory} setRenderHistory={setRenderHistory} />
 
+</div>
 
-     <div  className="col-span-4  p-10 ">
+
+     <div  className="col-span-1 md:col-span-4 p-4 sm:p-6 md:p-10 overflow-auto ">
 
 <h1 className="text-4xl bg-clip-text text-transparent bg-gradient-to-r from-pink-800 to-violet-700">
 
@@ -166,10 +170,11 @@ if(darkMode == 'dark'){
    
     </div>
       </div>
-<div className="dark:bg-zinc-800 bg-red-100 w-1/2 p-1 pr-5 dark:text-white text-zinc-800 m-auto rounded-4xl border-zinc-700 flex h-16  border     ">
+        <div className="dark:bg-zinc-800 bg-red-100 w-full sm:w-4/5 md:w-2/3 lg:w-1/2 p-1 pr-3 dark:text-white text-zinc-800 m-auto rounded-2xl border border-zinc-700 flex h-14 sm:h-16">
+
   <input onKeyDown={isEnter}  type="text" placeholder="Ask me anything" value={question} onChange={(e)=>{setQuestion(e.target.value)}}   className="w-full h-full p-3 outline-none" />
 
-<button onClick={askQuestion} >Ask</button>
+<button onClick={askQuestion}  className="px-4 text-white bg-blue-600 rounded-r-xl" >Ask</button>
 
 
 
@@ -184,6 +189,13 @@ if(darkMode == 'dark'){
 
 </div>
 </div>
+
+
+
+
+
+
+
     </>
   )
 }
